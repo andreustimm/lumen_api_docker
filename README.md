@@ -6,26 +6,33 @@ This project was built with Lumen Framework
 
 ```
 git clone ...
-composer install
 ```
 
 ## Step 02
+
+Create your database with Sqlite or other
+
+## Step 03
 
 Copy `.env` file
 
 ```cp .env.example .env```
 
-## Step 03
+## Step 04
 
-Configure your database with your credentials. After configure run this:
+Configure your database with your credentials. After configure the `.env` file and run this:
 
 ```
-php7.4 artisan migrate
+sudo docker-compose build app
+sudo docker-compose up -d
+sudo docker-compose ps
+sudo docker-compose exec app composer install
+docker-compose exec app php artisan migrate
 ```
 
 ## Endpoints
 
-Where `BASE_URL` is `http://localhost:8181` for example
+Where `BASE_URL` is `http://localhost:8383` for example
 
  - **GET** *{BASE_URL}*/api/carro
  - **GET** *{BASE_URL}*/api/carro/1
